@@ -241,7 +241,7 @@ public:
                    DayOfWeek_t dayOfWeek, uint8_t hour, uint8_t minute,
                    uint8_t second = 0, bool syncUnixTime = true);
   void setDateTimeComponent(DateTimeComponent_t component, uint8_t value);
-  DateTimeComponent_t getDateTimeComponent(DateTimeComponent_t component);
+  uint8_t getDateTimeComponent(DateTimeComponent_t component);
   bool synchronize();
 
   bool enableClockOutput(ClockOutputFrequency_t frequency);
@@ -253,6 +253,7 @@ public:
                        uint8_t hour = 0, uint8_t minute = 0);
   bool setDailyAlarm(uint8_t hour = 0, uint8_t minute = 0);
   bool setHourlyAlarm(uint8_t minute = 0);
+  bool setMinutelyAlarm(uint8_t second = 0);
   bool disableAlarm();
 
   bool setPeriodicCountdownTimer(uint16_t timerValue,

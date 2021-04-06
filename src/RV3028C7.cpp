@@ -340,12 +340,12 @@ void RV3028C7::setDateTimeComponent(DateTimeComponent_t component,
   _dateTime[component] = convertToBCD(value);
 }
 
-DateTimeComponent_t RV3028C7::getDateTimeComponent(DateTimeComponent_t component)
+uint8_t RV3028C7::getDateTimeComponent(DateTimeComponent_t component)
 {
   // Updates RTC date time value to array
   readBytesFromRegisters(REG_CLOCK_SECONDS, _dateTime, DATETIME_COMPONENTS);
 
-  return _dateTime[component];
+  return convertToDecimal(_dateTime[component]);
 }
 
 bool RV3028C7::synchronize()
